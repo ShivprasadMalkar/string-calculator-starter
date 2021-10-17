@@ -12,6 +12,9 @@ class StringCalculator {
 	    	   else {
 	    		   String[] nums = StringCalculator.split(input);
 	    		   for (String num : nums) {
+	    			   if (Integer.parseInt(num) < 0) {
+	    	                throw new RuntimeException("negatives not allowed " +num);
+	    	            }
 	    			   sum += Integer.parseInt(num);
 	    		   }
 	    		   return sum ;

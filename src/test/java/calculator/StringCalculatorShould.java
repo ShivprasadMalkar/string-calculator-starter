@@ -42,4 +42,15 @@ class StringCalculatorShould {
     	
     	assertEquals(3, calculator.add("//;\n1;2"));
    }
+    
+    @Test  //7
+    void string_with_negative_number() {
+   	 try {
+			 calculator.add("//;\\n1;-2;5");
+		} catch (RuntimeException e) {
+			//assertEquals("Negatives not allowed [-7]", e.getMessage());
+			e.getMessage();
+		}
+   }
+    
 }
