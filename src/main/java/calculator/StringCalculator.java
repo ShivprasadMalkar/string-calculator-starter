@@ -61,19 +61,15 @@ class StringCalculator {
 	private int convertToInt(String input) {
     	int i = Integer.parseInt(input);
     	if(i < 0) {
-    		// if a negative number is there
-    		//then add to list
     		list.add(i);
     		return 0;
     	}else if(i > 1000) {
-    		//if a number is grater than 1000
-    		//the ignore it and return 0
+    		
     		return 0;
     	}
-		
     		return i;
-    	
     }
+	
 	private static String[] split(String str) {
 		if (str.startsWith("//")) {
 			 String delimiter = str.substring(2, 3);

@@ -79,4 +79,11 @@ class StringCalculatorShould {
     	
    	 	assertEquals(6, calculator.add("//[***]\n1***2***3"));
     }
+    
+    @Test
+    void string_with_mutiple_delimeter_of_single_char() {
+    
+   	 	assertEquals(6, calculator.add("//[*][%]\n1*2%3"));
+    }
+    
 }
