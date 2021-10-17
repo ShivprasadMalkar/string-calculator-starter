@@ -38,13 +38,13 @@ class StringCalculatorShould {
 	}
     
     @Test  //6
-    void string_with_different_delimiter() {
+    public void string_with_different_delimiter() {
     	
     	assertEquals(3, calculator.add("//;\n1;2"));
    }
     
     @Test  //7
-    void string_with_negative_number() {
+    public void string_with_negative_number() {
    	 try {
 			 calculator.add("//;\\n1;-2;5");
 		} catch (RuntimeException e) {
@@ -53,4 +53,13 @@ class StringCalculatorShould {
 		}
    }
     
+	@Test //8
+	public void multiple_Negative_Numbers() throws Exception {
+		try {
+			calculator.add("-1,-2,3");
+		}
+		catch(Exception e){
+			assertEquals("negatives not allowed [-1, -2]", e.getMessage());
+		}
+	}
 }
