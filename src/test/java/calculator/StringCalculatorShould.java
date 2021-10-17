@@ -23,4 +23,10 @@ class StringCalculatorShould {
         StringCalculator calculator = new StringCalculator();
         assertEquals(3, calculator.add("1,2"));
     }
+    
+    @Test
+    public void add_Unknown_Number_Is_Sum_Of_Numbers() throws Exception {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(13, calculator.add("1,2,7,9,4"));
+    }
 }
