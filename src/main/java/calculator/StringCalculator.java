@@ -2,15 +2,35 @@ package calculator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 class StringCalculator {
 	static int count = 0 ;
-	
+	List<Integer> list=new ArrayList<>();
 	public int add(String input) {
 		count++ ;
 		int sum=0;
 		
-		List<Integer> list=new ArrayList<>();
+		if(input.startsWith("//")) {
+    		String regex = "//(.*)\n(.*)";
+    		Matcher m = Pattern.compile(regex).matcher(input);
+    
+    		if(!m.matches()) {
+    			return -1;
+    		}
+    	
+    		String delim =  m.group(1);
+    		String s = m.group(2);
+    		StringTokenizer token = new StringTokenizer(s, delim);
+    		while(token.hasMoreElements()) {
+    			String t = token.nextToken();
+    			sum  = sum + convertToInt(t);
+    		}	
+    		return sum;
+    	}
+		
 		if(input.isEmpty()) {
 		}
 		
@@ -38,7 +58,22 @@ class StringCalculator {
 	    	   }
 	       }
 	    }
-
+	private int convertToInt(String input) {
+    	int i = Integer.parseInt(input);
+    	if(i < 0) {
+    		// if a negative number is there
+    		//then add to list
+    		list.add(i);
+    		return 0;
+    	}else if(i > 1000) {
+    		//if a number is grater than 1000
+    		//the ignore it and return 0
+    		return 0;
+    	}
+		
+    		return i;
+    	
+    }
 	private static String[] split(String str) {
 		if (str.startsWith("//")) {
 			 String delimiter = str.substring(2, 3);
@@ -51,5 +86,6 @@ class StringCalculator {
 	public int getCallCount() {
 		return count;
 	}
+	
 }
 

@@ -73,5 +73,10 @@ class StringCalculatorShould {
 	{
 		assertEquals(2, calculator.add("2,1001"));
 	}
- 	
+    
+    @Test
+    public void delimeter_of_any_length() {
+    	
+   	 	assertEquals(6, calculator.add("//[***]\n1***2***3"));
+    }
 }
