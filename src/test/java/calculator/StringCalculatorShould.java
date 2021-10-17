@@ -64,9 +64,14 @@ class StringCalculatorShould {
 	}
 	
     @Test
-	public void validateCallCount(){
+	public void validate_Call_Count (){
 		assertEquals(calculator.getCallCount(), calculator.count);
 	}
  	
+    @Test
+	public void ignore_Nums_Grt_Thn_1000() throws Exception
+	{
+		assertEquals(2, calculator.add("2,1001"));
+	}
  	
 }

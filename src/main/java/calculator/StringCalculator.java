@@ -19,6 +19,7 @@ class StringCalculator {
 	       else {
 	    	   if(input.length()==1) 
 	    	   		return Integer.parseInt(input);
+	    	   
 	    	   else {
 	    		   String[] nums = StringCalculator.split(input);
 	    		   for (String num : nums) {
@@ -26,9 +27,13 @@ class StringCalculator {
 	    	             //   throw new RuntimeException("negatives not allowed " +num);
 	    				 list.add(Integer.parseInt(num));
 	    			   }
-	    			   
+	    			   if (Integer.parseInt(num) > 1000) {
+	    				   num="0";
+	    				   sum+=Integer.parseInt(num);
+	    			   }
 	    			   sum += Integer.parseInt(num);
 	    		   }
+	    		   
 	    		   return sum ;
 	    	   }
 	       }
