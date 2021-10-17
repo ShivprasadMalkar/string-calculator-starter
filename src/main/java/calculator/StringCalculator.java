@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 class StringCalculator {
-
+	static int count = 0 ;
+	
 	public int add(String input) {
+		count++ ;
 		int sum=0;
 		
 		List<Integer> list=new ArrayList<>();
@@ -41,5 +43,8 @@ class StringCalculator {
 		return nums;
 	}
 	
+	public int getCallCount() {
+		return count;
+	}
 }
 
