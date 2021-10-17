@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StringCalculatorShould {
-
+	StringCalculator calculator= new StringCalculator();
+	
     @Test
     void empty_string_should_return_0() {
         StringCalculator stringCalculator = new StringCalculator();
@@ -27,6 +28,13 @@ class StringCalculatorShould {
     @Test
     public void add_Unknown_Number_Is_Sum_Of_Numbers() throws Exception {
         StringCalculator calculator = new StringCalculator();
-        assertEquals(13, calculator.add("1,2,7,9,4"));
+        assertEquals(23, calculator.add("1,2,7,9,4"));
     }
+    
+    @Test  //5
+	public void string_with_new_line_as_delimeter() throws Exception
+	{
+		assertEquals(6, calculator.add("1\n2,3"));
+	}
+    
 }
