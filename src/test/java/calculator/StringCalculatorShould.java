@@ -81,9 +81,15 @@ class StringCalculatorShould {
     }
     
     @Test
-    void string_with_mutiple_delimeter_of_single_char() {
+    void mutiple_delimeter_of_single_char() {
     
    	 	assertEquals(6, calculator.add("//[*][%]\n1*2%3"));
+    }
+    
+    @Test
+    void mutiple_delimeter_of_length_longer_than_one_char() {
+    	
+   	 	assertEquals(6, calculator.add("//[**][%%]\n1**2%%3"));
     }
     
 }
